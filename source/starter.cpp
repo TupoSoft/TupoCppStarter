@@ -4,6 +4,4 @@
 
 #include <iostream>
 
-auto tuposoft::starter::hello(std::string someone) -> void {
-    std::cout << fmt::format("Hello {}!", someone) << std::endl;
-}
+auto tuposoft::starter::hello(std::string someone) -> void { std::cout << fmt::format("Hello {}!\n", someone); }
