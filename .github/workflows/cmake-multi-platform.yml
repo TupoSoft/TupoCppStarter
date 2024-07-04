@@ -8,8 +8,18 @@ env:
 on:
   push:
     branches: [ "master" ]
+    paths:
+      - '**.cpp'
+      - '**.hpp'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
   pull_request:
     branches: [ "master" ]
+    paths:
+      - '**.cpp'
+      - '**.hpp'
+      - '**.cmake'
+      - '**/CMakeLists.txt'
 jobs:
   build:
     runs-on: ${{ matrix.os }}
