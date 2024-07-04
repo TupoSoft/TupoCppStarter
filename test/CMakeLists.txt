@@ -9,14 +9,10 @@ endif ()
 
 CPMAddPackage("gh:google/googletest@1.14.0")
 
-if (TEST_INSTALLED_VERSION)
-    find_package(${BASE_PROJECT_NAME} REQUIRED)
-else ()
-    CPMAddPackage(
-            NAME ${BASE_PROJECT_NAME}
-            SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..
-    )
-endif ()
+CPMAddPackage(
+        NAME ${BASE_PROJECT_NAME}
+        SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..
+)
 
 enable_testing()
 
