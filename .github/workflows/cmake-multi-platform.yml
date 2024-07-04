@@ -40,11 +40,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Configure CMake
-        run: |
-          cmake -B $BUILD_OUTPUT_DIR -S $WORKSPACE \
-          -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-          -DCMAKE_CXX_COMPILER=${{ matrix.platform == 'cl' && 'cl' || matrix.platform == 'gcc' && 'g++' || 'clang++' }} \
-          -DCMAKE_C_COMPILER=${{ matrix.platform }} \
+        run: >
+          cmake -B $BUILD_OUTPUT_DIR -S $WORKSPACE
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: Build
         run: cmake --build $BUILD_OUTPUT_DIR --config $BUILD_TYPE
       - name: Test
